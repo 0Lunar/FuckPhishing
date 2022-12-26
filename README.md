@@ -1,4 +1,4 @@
-# FuckPhishing
+# FuckPhishin
 a tool for flooding phishing pages with requests
 
 # requirements
@@ -10,4 +10,4 @@ OR
  - pip3 install -r requirements.txt
 
 # usage
- - python3 main.py url number_of_requests
+ - python3 main.py 'url' 'number_of_requests'
