@@ -51,9 +51,23 @@ def main(site, requestss):
         os.system("cls")
     banner()
     l = int(0)
+    if(platform.system() == "Linux"):
+        proxy = input("\n\n Do You want to usa a proxy? [Y/n] -> ")
+        if(proxy == "Y" or "y"):
+            proxyess = {
+                "sock4" : "127.0.0.1:9050"
+            }
+            print("\n\n Starting Tor service...")
+            r = os.system("sudo systemctl start tor")
+            if(r == 1):
+                print("\n Tor not found, please install it")
+                exit()
     while(l != requestss):
         try:
-            p = requests.post(site, auth=('random@gmail.com', 'random123456789'))
+            if(proxy == "Y" or "y"):
+                p = requests.post(site, auth=('random@gmail.com', 'random123456789'), proxies=proxyess)
+            else:
+                p = requests.post(site, auth=('random@gmail.com', 'random123456789'))
             if(p.status_code != 200):
                 print(f"{p.status_code} ; Request not sent succesfully")
             else:
