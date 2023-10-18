@@ -53,7 +53,7 @@ def main(site, requestss):
     l = int(0)
     if(platform.system() == "Linux"):
         proxy = input("\n\n Do You want to usa a proxy? [Y/n] -> ")
-        if(proxy == "Y" or "y"):
+        if(proxy == "y"):
             proxyess = {
                 "sock4" : "127.0.0.1:9050"
             }
@@ -64,7 +64,7 @@ def main(site, requestss):
                 exit()
     while(l != requestss):
         try:
-            if(proxy == "Y" or "y"):
+            if(proxy == "y"):
                 p = requests.post(site, auth=('random@gmail.com', 'random123456789'), proxies=proxyess)
             else:
                 p = requests.post(site, auth=('random@gmail.com', 'random123456789'))
